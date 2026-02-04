@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho com botão */
+.cabecalho-com-botao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    background-color: #0072C6;
+    padding: 20px;
+    font-size: 2rem;
+    border-radius: 8px;
+    flex: 1;
+    margin: 0;
+}
+
+/* Botão de impressão */
+.botao-print {
+    background-color: #0072C6;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.botao-print:hover {
+    background-color: #005ea6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.botao-print:active {
+    transform: translateY(0);
+}
+
+.botao-print svg {
+    flex-shrink: 0;
+}
+
+.grade-calendario {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cartao-mes {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+}
+
+.cartao-mes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-mes {
+    background-color: #0072C6;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+.titulo-mes.clicavel {
+    cursor: pointer;
+}
+
+.titulo-mes.clicavel:hover {
+    background-color: #005ea6;
+}
+
+.titulo-mes h2 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Estilo para o subtítulo especial */
+.subtitulo-mes {
+    background-color: #005ea6;
+    color: white;
+    text-align: center;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Estilo para subtítulo clicável */
+.subtitulo-mes.clicavel {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subtitulo-mes.clicavel:hover {
+    background-color: #004a8c;
+    transform: scale(1.02);
+}
+
+/* Estilo para lista de eventos */
+.lista-eventos {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.item-evento {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.item-evento:ultimo-filho {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.data-evento {
+    font-weight: bold;
+    color: #104972;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.descricao-evento {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Estilo especial para evento clicável */
+.item-evento.especial {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item-evento.especial:hover {
+    background-color: #f0f8ff;
+    transform: translateX(5px);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.item-evento.especial .data-evento {
+    color: #0072C6;
+    font-weight: bold;
+}
+
+/* Modal com transições */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: auto;
+    transition: background-color 0.3s ease;
+}
+
+.modal.mostrar {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-conteudo {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: translateY(-50px) scale(0.9);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal.mostrar .modal-conteudo {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Estilo para informações do encontro */
+.info-encontro {
+    background-color: #f8f9fa;
+    border-left: 4px solid #0072C6;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.info-encontro p {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.info-encontro strong {
+    color: #0072C6;
+    min-width: 120px;
+    display: inline-block;
+}
+
+/* Modal específico para o card do mês (maior) */
+.modal-card-grande {
+    max-width: 600px;
+    padding: 30px;
+}
+
+.modal-card-grande h2 {
+    color: #0072C6;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    text-align: center;
+}
+
+#conteudo-card-mes {
+    width: 100%;
+}
+
+.cartao-mes-modal {
+    min-height: auto;
+    box-shadow: none;
+    border-radius: 0;
+    transform: none !important;
+    margin: 0;
+    width: 100%;
+    background-color: transparent;
+}
+
+.cartao-mes-modal .titulo-mes {
+    cursor: default !important;
+}
+
+.cartao-mes-modal .titulo-mes:hover {
+    background-color: #0072C6 !important;
+}
+
+.cartao-mes-modal .lista-eventos {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.fechar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.fechar-modal:hover {
+    color: #0072C6;
+}
+
+.modal-conteudo h2 {
+    color: #0072C6;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    text-align: center;
+}
+
+.modal-conteudo p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para informações das reuniões */
+.info-reunioes {
+    background-color: #f8f9fa;
+    border-left: 4px solid #0072C6;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.info-reunioes strong {
+    color: #0072C6;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.info-reunioes br {
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Estilo para imagem no modal */
+.imagem-modal {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.imagem-modal img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.imagem-modal img:hover {
+    transform: scale(1.02);
+}
+
+.modal-rodape {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.modal-rodape button {
+    background-color: #0072C6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-rodape button:hover {
+    background-color: #005ea6;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cabecalho-com-botao {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .botao-print {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .grade-calendario {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cartao-mes {
+        min-height: 220px;
+    }
+    
+    .modal-conteudo {
+        margin: 10% auto;
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .modal-card-grande {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+    .info-encontro p {
+        font-size: 0.95rem;
+    }
+    
+    .info-encontro strong {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grade-calendario {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+    
+    .botao-print {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+    
+    .titulo-mes h2 {
+        font-size: 1.3rem;
+    }
+    
+    .titulo-mes {
+        padding: 15px;
+    }
+    
+    .subtitulo-mes {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    .data-evento {
+        font-size: 0.85rem;
+    }
+    
+    .descricao-evento {
+        font-size: 0.9rem;
+    }
+    
+    .lista-eventos {
+        padding: 12px;
+    }
+    
+    .modal-conteudo {
+        margin: 15% auto;
+        padding: 15px;
+    }
+    
+    .modal-card-grande {
+        padding: 15px;
+    }
+    
+    .info-encontro {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .info-encontro strong {
+        min-width: 90px;
+    }
+    
+    .info-reunioes {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}

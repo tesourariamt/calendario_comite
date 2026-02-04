@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALENDÁRIO MT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="cabecalho-com-botao">
+            <h1>CALENDÁRIO 2026 - COMITÊ DE ÁREA MT</h1>
+            <button class="botao-print" onclick="abrirPaginaImpressao()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="grade-calendario">
+            <!-- Janeiro -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'JANEIRO')">
+                    <h2>JANEIRO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento">
+                        <div class="data-evento">24 JAN</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Áreas</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModalEncontro('1º', 'Tradição Um/Conceito Um')">
+                        <div class="data-evento">29 JAN</div>
+                        <div class="descricao-evento">1º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fevereiro -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'FEVEREIRO')">
+                    <h2>FEVEREIRO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('2º', 'Tradição Dois/Conceito Dois')">
+                        <div class="data-evento">26 FEV</div>
+                        <div class="descricao-evento">2º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">28 FEV</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Março -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'MARÇO')">
+                    <h2>MARÇO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento">
+                        <div class="data-evento">23 a 27 DE MAR</div>
+                        <div class="descricao-evento">47ª Conferência de Serviços Gerais Al-Anon</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModalEncontro('3º', 'Tradição Três/Conceito Três')">
+                        <div class="data-evento">26 MAR</div>
+                        <div class="descricao-evento">3º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">28 MAR</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abril -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'ABRIL')">
+                    <h2>ABRIL</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalAniversario('Grupo Central', '16 de abril de 1980', 'Reunião aos Sábados - das 19:30h às 21:30h')">
+                        <div class="data-evento">16 ABR</div>
+                        <div class="descricao-evento">Aniversário do Grupo Central</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModalEncontro('4º', 'Tradição Quatro/Conceito Quatro')">
+                        <div class="data-evento">23 ABR</div>
+                        <div class="descricao-evento">4º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">25 ABR</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModalAniversario('Grupo Cuiabá', '28 de abril de 1977', 'Reunião às segundas e sextas-feiras - das 20h às 22h')">
+                        <div class="data-evento">28 ABR</div>
+                        <div class="descricao-evento">Aniversário do Grupo Cuiabá</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maio -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'MAIO')">
+                    <h2>MAIO</h2>
+                </div>
+                <div class="subtitulo-mes clicavel" onclick="abrirModal('modal-lois')">
+                    MEMÓRIAS DE LÓIS
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('5º', 'Tradição Cinco/Conceito Cinco')">
+                        <div class="data-evento">21 MAI</div>
+                        <div class="descricao-evento">5º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">23 MAI</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModalAniversario('Grupo Esperança', '25 de maio de 1983', 'Reunião aos Sábados - das 16h às 18h')">
+                        <div class="data-evento">25 MAI</div>
+                        <div class="descricao-evento">Aniversário do Grupo Esperança</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">30 MAI</div>
+                        <div class="descricao-evento">CAMPANHA "Que Comece por Mim"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Junho -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'JUNHO')">
+                    <h2>JUNHO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalAniversario('Grupo Perseverança e Amor - Cáceres MT', '8 de junho de 1985', 'Reunião aos Sábados - das 16h às 18h')">
+                        <div class="data-evento">8 JUN</div>
+                        <div class="descricao-evento">Aniversário do Grupo Perseverança e Amor</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModalEncontro('6º', 'Tradição Seis/Conceito Seis')">
+                        <div class="data-evento">25 JUN</div>
+                        <div class="descricao-evento">6º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">27 JUN</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Julho -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'JULHO')">
+                    <h2>JULHO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('7º', 'Tradição Sete/Conceito Sete')">
+                        <div class="data-evento">23 JUL</div>
+                        <div class="descricao-evento">7º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">25 JUL</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agosto -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'AGOSTO')">
+                    <h2>AGOSTO</h2>
+                </div>
+                <div class="subtitulo-mes clicavel" onclick="abrirModal('modal-apadrinhamento')">
+                    MÊS DO APADRINHAMENTO ALATEEN
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('8º', 'Tradição Oito/Conceito Oito')">
+                        <div class="data-evento">20 AGO</div>
+                        <div class="descricao-evento">8º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">22 AGO</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Setembro -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'SETEMBRO')">
+                    <h2>SETEMBRO</h2>
+                </div>
+                <div class="subtitulo-mes clicavel" onclick="abrirModal('modal-repasse')">
+                    REPASSE DA CONFERÊNCIA
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('9º', 'Tradição Nove/Conceito Nove')">
+                        <div class="data-evento">24 SET</div>
+                        <div class="descricao-evento">9º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento especial" onclick="abrirModal('modal-encontro-nacional')">
+                        <div class="data-evento">25 SET</div>
+                        <div class="descricao-evento">3º ENCONTRO NACIONAL DE AL-ANON/ALATEEN</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">26 SET</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outubro -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'OUTUBRO')">
+                    <h2>OUTUBRO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('10º', 'Tradição Dez/Conceito Dez')">
+                        <div class="data-evento">22 OUT</div>
+                        <div class="descricao-evento">10º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">24 OUT</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novembro -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'NOVEMBRO')">
+                    <h2>NOVEMBRO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('11º', 'Tradição Onze/Conceito Onze')">
+                        <div class="data-evento">26 NOV</div>
+                        <div class="descricao-evento">11º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">28 NOV</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">28 NOV</div>
+                        <div class="descricao-evento">Campanha da Gratidão</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">30 NOV</div>
+                        <div class="descricao-evento">Data Limite: envio da "Despesa Nivelada"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dezembro -->
+            <div class="cartao-mes">
+                <div class="titulo-mes clicavel" onclick="abrirModalCard(this, 'DEZEMBRO')">
+                    <h2>DEZEMBRO</h2>
+                </div>
+                <div class="lista-eventos">
+                    <div class="item-evento especial" onclick="abrirModalEncontro('12º', 'Tradição Doze/Conceito Doze')">
+                        <div class="data-evento">17 DEZ</div>
+                        <div class="descricao-evento">12º Encontro Grupo de Estudos Al-Anon/Alateen</div>
+                    </div>
+                    <div class="item-evento">
+                        <div class="data-evento">19 DEZ</div>
+                        <div class="descricao-evento">Reunião Mensal Comitê de Área</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Único para Todos os Aniversários -->
+    <div id="modal-aniversario" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal('modal-aniversario')">&times;</span>
+            <h2 id="titulo-aniversario">Aniversário do Grupo</h2>
+            <p id="texto-aniversario">Hoje a festa de serenidade é no Grupo. Fundado em [DATA], completa mais um ano levando a mensagem de esperança para familiares e amigos de alcoólicos.</p>
+            <div id="reunioes-aniversario"></div>
+            <div class="modal-rodape">
+                <button onclick="fecharModal('modal-aniversario')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para os Encontros de Estudos -->
+    <div id="modal-encontro" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal('modal-encontro')">&times;</span>
+            <h2 id="titulo-encontro"></h2>
+            <div class="info-encontro">
+                <p><strong>Tema:</strong> <span id="tema-encontro"></span></p>
+                <p><strong>Literatura Base:</strong> <span id="literatura-encontro">LAC-B24</span></p>
+                <p><strong>Horário:</strong> <span id="horario-encontro">19:30</span></p>
+                <p><strong>Plataforma:</strong> <span id="plataforma-encontro">MEET</span></p>
+            </div>
+            <p>Este encontro faz parte da série de estudos mensais sobre as Tradições e Conceitos de Al-Anon.</p>
+            <div class="modal-rodape">
+                <button onclick="fecharModal('modal-encontro')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para o Card do Mês -->
+    <div id="modal-card-mes" class="modal">
+        <div class="modal-conteudo modal-card-grande">
+            <span class="fechar-modal" onclick="fecharModal('modal-card-mes')">&times;</span>
+            <h2 id="titulo-mes-modal"></h2>
+            <div id="conteudo-card-mes"></div>
+        </div>
+    </div>
+
+    <!-- Modal para Memórias de Lóis -->
+    <div id="modal-lois" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal('modal-lois')">&times;</span>
+            <h2>MEMÓRIAS DE LÓIS</h2>
+            <p>Lembremos de Lois W. a co-fundadora de Al-Anon no mundo. O mês de maio não foi escolhido aleatoriamente, é o mês do aniversário de Lóis W. e aniversário do Al-Anon no Brasil.<br><br>
+            Nesse período é orientado aos Grupos desenvolverem temas sobre a associação e sua história no mundo.</p>
+            <div class="modal-rodape">
+                <button onclick="fecharModal('modal-lois')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Mês do Apadrinhamento Alateen -->
+    <div id="modal-apadrinhamento" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal('modal-apadrinhamento')">&times;</span>
+            <h2>MÊS DO APADRINHAMENTO ALATEEN</h2>
+            <p>Momento em que os grupos trabalham o tema Alateen de forma ampliada com realização de atividades atrativas com acolhimentos de adolescentes, leituras e estudos da LAC.</p>
+            <div class="modal-rodape">
+                <button onclick="fecharModal('modal-apadrinhamento')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para 3º ENCONTRO NACIONAL DE AL-ANON/ALATEEN -->
+    <div id="modal-encontro-nacional" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal('modal-encontro-nacional')">&times;</span>
+            <h2>3º ENCONTRO NACIONAL DE AL-ANON/ALATEEN</h2>
+            <div class="imagem-modal">
+                <img src="scr/encontro.jpg" alt="3º Encontro Nacional de Al-Anon/Alateen">
+            </div>
+            <div class="modal-rodape">
+                <button onclick="fecharModal('modal-encontro-nacional')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para REPASSE DA CONFERÊNCIA -->
+    <div id="modal-repasse" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal('modal-repasse')">&times;</span>
+            <h2>REPASSE DA CONFERÊNCIA</h2>
+            <p>Reunião em que a Delegada de Área repassa aos grupos os assuntos tratados na Conferência de Serviços Gerais do Al-Anon.</p>
+            <div class="modal-rodape">
+                <button onclick="fecharModal('modal-repasse')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+
+</html>

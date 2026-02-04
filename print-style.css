@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.container-print {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    background-color: #0072C6;
+    padding: 10px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.grade-calendario-print {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    height: calc(100% - 60px);
+    overflow: hidden;
+}
+
+.cartao-mes-print {
+    background-color: white;
+    border: 2px solid #0072C6;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.titulo-mes-print {
+    background-color: #0072C6;
+    padding: 8px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.titulo-mes-print h2 {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.subtitulo-mes-print {
+    background-color: #005ea6;
+    color: white;
+    text-align: center;
+    padding: 5px 8px;
+    font-weight: bold;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+}
+
+.lista-eventos-print {
+    padding: 8px;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-evento-print {
+    margin-bottom: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.item-evento-print:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.data-evento-print {
+    font-weight: bold;
+    color: #0072C6;
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.descricao-evento-print {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+/* Media query para impressão */
+@media print {
+    @page {
+        size: landscape;
+        margin: 10mm;
+    }
+    
+    body {
+        padding: 0;
+        background-color: white;
+    }
+    
+    .container-print {
+        page-break-inside: avoid;
+    }
+    
+    .cartao-mes-print {
+        page-break-inside: avoid;
+    }
+}
+
+/* Ajustes para resoluções diferentes */
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 1.1rem;
+        padding: 8px;
+    }
+    
+    .titulo-mes-print h2 {
+        font-size: 0.85rem;
+    }
+    
+    .subtitulo-mes-print {
+        font-size: 0.55rem;
+        padding: 4px 6px;
+    }
+    
+    .data-evento-print {
+        font-size: 0.6rem;
+    }
+    
+    .descricao-evento-print {
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 1rem;
+        padding: 6px;
+    }
+    
+    .titulo-mes-print h2 {
+        font-size: 0.75rem;
+    }
+    
+    .subtitulo-mes-print {
+        font-size: 0.5rem;
+        padding: 3px 5px;
+    }
+    
+    .data-evento-print {
+        font-size: 0.55rem;
+    }
+    
+    .descricao-evento-print {
+        font-size: 0.5rem;
+    }
+    
+    .lista-eventos-print {
+        padding: 6px;
+        gap: 4px;
+    }
+}
